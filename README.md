@@ -1,28 +1,39 @@
-# AWS-DevOps-web-server
-# Web Server Setup Script
+# AWS-DevOps-Web-Server-Setup
 
-This repository contains a shell script (`setup_webserver.sh`) for automating the setup of an Apache web server on an Ubuntu EC2 instance.
+This repository contains a shell script (`setup_webserver.sh`) for automating the setup of a web server on an Ubuntu EC2 instance. The script installs and configures Apache (or NGINX if preferred), creates a simple "Hello World" web page, and configures necessary firewall settings for HTTP/HTTPS traffic.
 
-## Initial Setup
-## EC2 Instance Setup
+## Task Overview
 
-1. Launch a t2.micro Amazon linux and Ubuntu EC2 instances from the AWS Management Console.
-2. Make sure to configure the security group to allow HTTP (port 80), SSH (port 22) traffic and all ICMP - IPV4 (all port ranges).
-3. Once the instance is running, SSH into the instance using your key pair.
+1. **AWS Setup and EC2 Instance Management:**
+   - Create two `t2.micro` EC2 instances using different operating systems (Amazon Linux and Ubuntu).
+   - Familiarize yourself with EC2 instance management (start, stop, restart, terminate).
+   - Set up SSH key pairs to securely connect to both instances.
+
+2. **Cross-Instance Connectivity:**
+   - Ensure SSH and ICMP (ping) traffic is allowed between both EC2 instances.
+   - Verify connectivity by pinging and SSH'ing between instances.
+
+3. **Web Server Installation:**
+   - Install Apache (or NGINX) on one EC2 instance.
+   - Create a simple HTML page displaying "Hello World" and OS version information.
+   - Configure the security group to allow HTTP/HTTPS traffic for public access to the page.
+
+4. **Cross-Instance Web Access Verification:**
+   - From the non-web server instance, use `curl` or `wget` to access the hosted "Hello World" page on the web server instance.
+
+5. **Automation Script:**
+   - The `setup_webserver.sh` script automates the installation of the web server, creation of the HTML page, and configuration of firewall rules.
+   - Ensure this script can be run on a fresh EC2 instance to set up the web server automatically.
+
+## Prerequisites
+
+- AWS Account with access to EC2 services.
+- SSH key pair configured for secure connection to the instances.
+- Basic knowledge of SSH, EC2, and shell scripting.
 
 ## Usage
 
-1. SSH into your Ubuntu EC2 instance.
-2. Download or copy the `setup_webserver.sh` script to your instance.
-3. Make the script executable: `chmod +x setup_webserver.sh`.
-4. Run the script: `./setup_webserver.sh`.
-5. Once completed, your web server will be up and running. Visit the public IP of your EC2 instance to view the "Hello World" page.
-
-## Script Explanation
-
-- The script updates the package list, installs Apache, and creates a simple HTML page.
-- Apache is configured to start on boot and traffic is allowed through the firewall (if UFW is used).
-
-## Public IP
-
-The public IP of the EC2 instance running the web server is: `your-ec2-public-ip`.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/AWS-DevOps-Web-Server-Setup.git
+   cd AWS-DevOps-Web-Server-Setup
