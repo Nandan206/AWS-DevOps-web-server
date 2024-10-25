@@ -3,6 +3,13 @@
 
 This repository contains a shell script (`setup_webserver.sh`) for automating the setup of an Apache web server on an Ubuntu EC2 instance.
 
+## Initial Setup
+## EC2 Instance Setup
+
+1. Launch a t2.micro Amazon linux and Ubuntu EC2 instances from the AWS Management Console.
+2. Make sure to configure the security group to allow HTTP (port 80), SSH (port 22) traffic and all ICMP - IPV4 (all port ranges).
+3. Once the instance is running, SSH into the instance using your key pair.
+
 ## Usage
 
 1. SSH into your Ubuntu EC2 instance.
