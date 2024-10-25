@@ -37,3 +37,15 @@ This repository contains a shell script (`setup_webserver.sh`) for automating th
    ```bash
    git clone https://github.com/yourusername/AWS-DevOps-Web-Server-Setup.git
    cd AWS-DevOps-Web-Server-Setup
+
+2. **SSH into Ubuntu ec2 instance:**
+   ```bash
+   ssh -i path-to-key.pem ubuntu@your-ec2-public-ip
+
+3. **Setup Sript:**
+   ```bash
+   chmod +x setup_webserver.sh
+   ./setup_webserver.sh
+4. **Verify Web Server Access:**
+   ```bash
+   curl http://web-server-ec2-public-ip
